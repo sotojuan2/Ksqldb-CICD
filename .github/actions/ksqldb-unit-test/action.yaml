@@ -16,4 +16,4 @@ runs:
   args:
     - sh
     - -c  
-    - (ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} > output | grep -iv 'test failed' output); exit $?
+    - (ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }}  | grep -iv 'test failed'); echo $?
