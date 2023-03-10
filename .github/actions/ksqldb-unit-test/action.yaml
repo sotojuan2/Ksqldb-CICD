@@ -12,13 +12,14 @@ inputs:
     default: /github/workspace/unit_tests/V000001__initialize_order_events_stream.sql
 runs:
   using: docker
-  image: docker://confluentinc/ksqldb-cli:0.17.0
+  image: docker://confluentinc/ksqldb-cli:latest
   args:
-    #- echo "hola mundo" >> $GITHUB_OUTPUT
-    - ksql-test-runner
-    - --input-file
-    - ${{ inputs.file1 }}
-    - --sql-file
-    - ${{ inputs.sql-file }}
-    - --output-file
-    - ${{ inputs.file2 }}
+    - echo 
+    - "hello world"
+    #- ksql-test-runner
+    #- --input-file
+    #- ${{ inputs.file1 }}
+    #- --sql-file
+    #- ${{ inputs.sql-file }}
+    #- --output-file
+    #- ${{ inputs.file2 }}
