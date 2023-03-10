@@ -12,15 +12,8 @@ inputs:
     default: /github/workspace/unit_tests/V000001__initialize_order_events_stream.sql
 runs:
   using: docker
-  image: docker://confluentinc/cp-ksqldb-cli:latest
+  image: docker://confluentinc/ksqldb-cli:latest
   args:
     - sh
     - -c  
-    - "ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -v 'test fail' "
-    #- ksql-test-runner
-    #- --input-file
-    #- ${{ inputs.file1 }}
-    #- --sql-file
-    #- ${{ inputs.sql-file }}
-    #- --output-file
-    #- ${{ inputs.file2 }}
+    - (ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -iv 'test failed'); exit $?
