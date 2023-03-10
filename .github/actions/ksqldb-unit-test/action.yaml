@@ -14,10 +14,9 @@ runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:latest
   args:
-    - echo 
-    - "hello world"
-    - "|"
-    - exit 1
+    - sh
+    - -c  
+    - echo "hello world" && exit 1
     #- ksql-test-runner
     #- --input-file
     #- ${{ inputs.file1 }}
