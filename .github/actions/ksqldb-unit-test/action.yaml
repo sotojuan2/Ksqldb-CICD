@@ -14,7 +14,7 @@ runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
-    - exit 1
+    - echo "hola mundo" >> $GITHUB_OUTPUT
     #- ksql-test-runner
     #- --input-file
     #- ${{ inputs.file1 }}
