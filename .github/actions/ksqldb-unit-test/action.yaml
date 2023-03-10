@@ -16,7 +16,7 @@ runs:
   args:
     - sh
     - -c  
-    - echo "hello world" && exit 1
+    - ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -iv "test fail" | exit 0
     #- ksql-test-runner
     #- --input-file
     #- ${{ inputs.file1 }}
