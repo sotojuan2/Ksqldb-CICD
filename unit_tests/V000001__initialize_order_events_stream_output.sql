@@ -1,8 +1,9 @@
 {
   "outputs": [
-          {"topic": "STM_DEPARTMENTS_WITH_KEY", "timestamp": 1563444000000, "value": {"DEPT_NO": "D001", "DEPT_NAME": "MARKETING"}, "key": "D001"},
-          {"topic": "STM_DEPARTMENTS_WITH_KEY", "timestamp": 1563444000000, "value": {"DEPT_NO": "D002", "DEPT_NAME": "CLAIMS"}, "key": "D002"},
-          {"topic": "STM_DEPARTMENTS_WITH_KEY", "timestamp": 1563444000000, "value": {"DEPT_NO": "D003", "DEPT_NAME": "ACCOUNTING"}, "key": "D003"},
-          {"topic": "STM_DEPARTMENTS_WITH_KEY", "timestamp": 1563444000000, "value": {"DEPT_NO": "D004", "DEPT_NAME": "INFORMATION TECHNOLOGY"}, "key": "D004"}
-        ]
+    {"topic": "S1", "timestamp": 0, "key": 0, "value": {"ORDERUNITS": 2.0, "CASE_RESULT": "medium"}},
+    {"topic": "S1", "timestamp": 0, "key": 100, "value": {"ORDERUNITS": 4.0, "CASE_RESULT": "large"}},
+    {"topic": "S1", "timestamp": 0, "key": 101, "value": {"ORDERUNITS": 6.0, "CASE_RESULT": "large"}},
+    {"topic": "S1", "timestamp": 0, "key": 101, "value": {"ORDERUNITS": 3.0, "CASE_RESULT": "medium"}},
+    {"topic": "S1", "timestamp": 0, "key": 101, "value": {"ORDERUNITS": 1.0, "CASE_RESULT": "small"}}
+  ]
 }
