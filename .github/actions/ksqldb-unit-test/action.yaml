@@ -14,11 +14,11 @@ runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
-    - echo "hola mundo" >> $GITHUB_OUTPUT
-    #- ksql-test-runner
-    #- --input-file
-    #- ${{ inputs.file1 }}
-    #- --sql-file
-    #- ${{ inputs.sql-file }}
-    #- --output-file
-    #- ${{ inputs.file2 }}
+    #- echo "hola mundo" >> $GITHUB_OUTPUT
+    - ksql-test-runner
+    - --input-file
+    - ${{ inputs.file1 }}
+    - --sql-file
+    - ${{ inputs.sql-file }}
+    - --output-file
+    - ${{ inputs.file2 }}
