@@ -1,14 +1,23 @@
-name: ksqlDB Migrations Validate
-description: validate ksqlDB schema with GitHub actions
+name: ksqlDB Unit Test
+description: unit test ksqlDB schema with GitHub actions
 inputs:
-  config:
-    description: Path to config file
-    default: /github/workspace/ksql-migrations.properties
+  input-file:
+    description: Path to input-file
+    default: /github/workspace/unit_test/V000001__initialize_order_events_stream_input.sql
+  output-file:
+    description: Path to output-file
+    default: /github/workspace/unit_test/V000001__initialize_order_events_stream_output.sql
+  sql-file:
+    description: Path to output-file
+    default: /github/workspace/unit_test/V000001__initialize_order_events_stream.sql
 runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
-    - ksql-migrations
-    - validate
-    - -c
-    - ${{ inputs.config }}
+    - ksql-test-runner
+    - --input-file
+    - ${{ input-file }}
+    - --sql-file
+    - ${{ sql-file }}
+    - --output-file
+    - ${{ output-file }}
