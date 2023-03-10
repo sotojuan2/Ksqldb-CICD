@@ -3,13 +3,13 @@ description: unit test ksqlDB schema with GitHub actions
 inputs:
   input-file:
     description: Path to input-file
-    default: /github/workspace/unit_test/V000001__initialize_order_events_stream_input.sql
+    default: /github/workspace/unit_tests/V000001__initialize_order_events_stream_input.sql
   output-file:
     description: Path to output-file
-    default: /github/workspace/unit_test/V000001__initialize_order_events_stream_output.sql
+    default: /github/workspace/unit_tests/V000001__initialize_order_events_stream_output.sql
   sql-file:
     description: Path to output-file
-    default: /github/workspace/unit_test/V000001__initialize_order_events_stream.sql
+    default: /github/workspace/unit_tests/V000001__initialize_order_events_stream.sql
 runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
