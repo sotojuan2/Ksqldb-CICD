@@ -16,8 +16,8 @@ runs:
   args:
     - ksql-test-runner
     - --input-file
-    - ${{ file1 }}
+    - ${{ inputs.file1 }}
     - --sql-file
-    - ${{ sql-file }}
+    - ${{ inputs.sql-file }}
     - --output-file
-    - ${{ file2 }}
+    - ${{ inputs.file2 }}
