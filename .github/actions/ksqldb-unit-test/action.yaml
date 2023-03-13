@@ -14,7 +14,7 @@ runs:
   using: docker
   image: docker://jsotocf/ksql-juan:v2
   args:
-    #- sh
-    #- -c
-    - "echo ddddkpassedjfailedkjljterer | grep -i failed | exit 1"
+    - sh
+    - -c
+    - " exit 1"
     #- ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -ivq failed || echo "::error::Unexpected version" && exit 1
