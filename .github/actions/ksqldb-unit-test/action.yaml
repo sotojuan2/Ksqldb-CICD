@@ -12,7 +12,7 @@ inputs:
     default: /github/workspace/unit_tests/V000001__initialize_order_events_stream.sql
 runs:
   using: docker
-  image: docker://jsotocf/ksql-juan
+  image: docker://jsotocf/ksql-juan:v1
   args:
     - sh
     - -c  
