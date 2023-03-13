@@ -16,5 +16,6 @@ runs:
   args:
     - sh
     - -c
-    - "if ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -iq passed '(Status:\s200)'; then exit 0 else exit 1 fi"
+    - unitTest=$(ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }})
+    - if grep -q passed <<< "$unitTest" ; then exit 0 else exit 1 fi
     #- ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -ivq failed || echo "::error::Unexpected version" && exit 1
