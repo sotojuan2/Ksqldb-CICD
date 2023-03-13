@@ -16,5 +16,5 @@ runs:
   args:
     #- sh
     #- -c
-    - echo ddddkpassedjfailedkjljterer | grep -iq failed   
+    - echo ddddkpassedjfailedkjljterer | grep -iq failed | exit 1   
     #- ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -ivq failed || echo "::error::Unexpected version" && exit 1
