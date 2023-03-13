@@ -1,0 +1,30 @@
+ password=$(< /etc/passwd)
+if grep -q root <<< "$password" ; then
+    echo root found
+elif grep -q nobody <<< "$password" ; then
+    echo nobody found
+fi
+root found
+
+
+
+V000001__initialize_order_events_stream
+
+if cat /etc/passwd |grep -q root  ; then
+    echo root found
+elif grep -q nobody <<< "$password" ; then
+    echo nobody found
+fi
+
+
+unitTest=$(ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }}) ; if grep -q passed <<< '$unitTest' ; then exit 0 else exit 1 fi
+
+
+
+if ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -q passed  ; then exit 0 else exit 1 fi
+
+
+
+"if ksql-test-runner --input-file /github/workspace/unit_tests/V000001__initialize_order_events_stream_input.sql --sql-file /github/workspace/unit_tests/V000001__initialize_order_events_stream.sql --output-file  /github/workspace/unit_tests/V000001__initialize_order_events_stream_output.sql | grep -q passed  ; then exit 0 else exit 1 fi"
+
+
