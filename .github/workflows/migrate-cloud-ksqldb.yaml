@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: franzbischoff/replace_envs@v1
-        env:
+        env: KSLQ
           CONFLUENT_KSQLDB_ENDPOINT: ${{ secrets.CONFLUENT_KSQLDB_ENDPOINT }}
           CONFLUENT_KSQLDB_API_KEY: ${{ secrets.CONFLUENT_KSQLDB_API_KEY }}
           CONFLUENT_KSQLDB_API_KEY2: ${{ secrets.CONFLUENT_KSQLDB_API_KEY2 }}
