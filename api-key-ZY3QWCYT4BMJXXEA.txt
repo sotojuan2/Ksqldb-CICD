@@ -11,7 +11,6 @@ pkc-e8mp5.eu-west-1.aws.confluent.cloud:9092
 
 
 
-ddd
 
 
 It may take a couple of minutes for the API key to be ready.
