@@ -27,13 +27,15 @@ jobs:
       id: ACTIONS_ALLOW_UNSECURE_COMMANDS
       run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
     - name: Send greeting
-      run: echo "${{ github.event.inputs.entity }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      run: |
+        echo "${{ github.event.inputs.entity }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+        echo "::set-env name=ENTITU::$github.event.inputs.entity"
     - name: test
       run: |
         export FOO=bar
         echo "::set-env name=FOO::$FOO"
     - name: test2
-      run: echo $FOO
+      run: echo $ENTITU
     - name: test3
       run: ls -l
         
