@@ -12,4 +12,4 @@ runs:
     - create
     - -c
     - ${{ inputs.config }}
-    - ${{ github.event.inputs.entity }}
+    - ${CONFLUENT_ENTITY}
