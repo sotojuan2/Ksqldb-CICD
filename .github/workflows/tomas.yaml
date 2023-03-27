@@ -38,7 +38,7 @@ jobs:
       run: echo $ENTITU
     - name: test3
       run: ls -l
-    - name: uses
+    - name: yyyy
       uses: ./.github/actions/ksqldb/action.yaml
       env:
         ENTITY: ${{env.ENTITY}}
