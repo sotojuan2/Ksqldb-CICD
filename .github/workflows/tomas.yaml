@@ -34,5 +34,7 @@ jobs:
         echo "::set-env name=FOO::$FOO"
     - name: test2
       run: echo $FOO
+    - name: test3
+      run: ls -l
         
     
