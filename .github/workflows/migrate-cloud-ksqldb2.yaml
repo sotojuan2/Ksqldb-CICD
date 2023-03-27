@@ -30,5 +30,7 @@ jobs:
           to_file: 'ksql-migrations.properties'
           commit: 'false'
       - uses: ./.github/actions/ksqldb-create
+        env:
+          entity: ${{ github.event.inputs.entity }}    
         
       - uses: ./.github/actions/ksqldb-ls
