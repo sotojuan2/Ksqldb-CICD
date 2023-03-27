@@ -8,7 +8,5 @@ runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
-    - ksql-migrations
-    - validate
-    - -c
-    - ${{ inputs.config }}
+    - ls
+    - -ltr

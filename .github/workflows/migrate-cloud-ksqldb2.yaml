@@ -8,7 +8,7 @@ on:
         options: 
         - monalisa
         - cschleiden
-      message:
+      entity:
         required: true
 jobs:
   build:
@@ -26,6 +26,4 @@ jobs:
           from_file: 'ksql-migrations.properties'
           to_file: 'ksql-migrations.properties'
           commit: 'false'
-      - uses: ./.github/actions/ksqldb-unit-test   
-      - uses: ./.github/actions/ksqldb-migrations-validate
-      - uses: ./.github/actions/ksqldb-migrations-apply
+      - uses: ./.github/actions/ksqldb-ls
