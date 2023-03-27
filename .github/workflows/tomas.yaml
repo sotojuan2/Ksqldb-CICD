@@ -39,8 +39,6 @@ jobs:
     - name: test3
       run: ls -l
     - name: uses
-      uses: ./.github/actions/ksql@master
+      uses: ./.github/actions/ksql
       env:
         ENTITY: ${{env.ENTITY}}
-        
-    
