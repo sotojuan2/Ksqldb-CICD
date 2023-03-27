@@ -12,4 +12,4 @@ runs:
     - create
     - -c
     - ${{ inputs.config }}
-    - ${CONFLUENT_ENTITY}
+    - $CONFLUENT_ENTITY
