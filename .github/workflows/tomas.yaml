@@ -29,7 +29,7 @@ jobs:
     - name: Send greeting
       run: |
         echo "${{ github.event.inputs.entity }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
-        echo "::set-env name=ENTITU::$github.event.inputs.entity"
+        echo "::set-env name=ENTITU::${{ github.event.inputs.entity }}"
     - name: test
       run: |
         export FOO=bar
