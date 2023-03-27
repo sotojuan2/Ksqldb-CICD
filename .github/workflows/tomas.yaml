@@ -26,5 +26,10 @@ jobs:
     - name: Send greeting
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
     - name: test
-      run: export FOO=bar
+      run: |
+        export FOO=bar
+        echo "::set-env name=FOO::$FOO"
+    - name: test2
+      run: echo $FOO
+        
     
