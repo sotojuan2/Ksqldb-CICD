@@ -29,7 +29,7 @@ jobs:
     - name: Send greeting
       run: |
         echo "${{ github.event.inputs.entity }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
-        echo "::set-env name=ENTITU::${{ github.event.inputs.entity }}"
+        echo "::set-env name=ENTITY::${{ github.event.inputs.entity }}"
     - name: test
       run: |
         export FOO=bar
@@ -38,5 +38,9 @@ jobs:
       run: echo $ENTITU
     - name: test3
       run: ls -l
+    - name: uses
+      uses: /.github/actions/ksqldb@master
+      env:
+        ENTITY: ${{env.ENTITY}}
         
     
