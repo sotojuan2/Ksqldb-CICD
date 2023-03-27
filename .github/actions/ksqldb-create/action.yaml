@@ -15,4 +15,4 @@ runs:
     - create
     - -c
     - ${{ inputs.config }}
-    - ${{ inputs.entity }}
+    - ${{ env.entity }}
