@@ -4,9 +4,6 @@ inputs:
   config:
     description: Path to config file
     default: /github/workspace/ksql-migrations.properties
-  entity:
-    description: Entity value
-    default: ${{CONFLUENT_ENTITY}}
 runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
