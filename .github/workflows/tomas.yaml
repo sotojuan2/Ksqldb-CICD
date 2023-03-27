@@ -20,9 +20,13 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
-
     
+
     steps:
     - name: Send greeting
-      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      - run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", ""]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      - run: |
+        export FOO=bar
+        echo "::set-env name=FOO::$FOO"
+      - run: echo $FOO
     
