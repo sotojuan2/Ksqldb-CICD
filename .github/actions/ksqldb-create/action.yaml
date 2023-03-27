@@ -8,6 +8,8 @@ runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
-    - ls
-    - migrations
-    - -ltr
+    - ksql-migrations
+    - create
+    - -c
+    - ${{ inputs.config }}
+    - ${{ github.event.inputs.entity }}
