@@ -34,3 +34,5 @@ jobs:
           entity: ${{ github.event.inputs.entity }}    
         
       - uses: ./.github/actions/ksqldb-ls
+          with: 
+            entity: ${{ github.event.inputs.entity }}
