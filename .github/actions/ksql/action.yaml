@@ -4,9 +4,12 @@ inputs:
   config:
     description: Path to config file
     default: /github/workspace/ksql-migrations.properties
+  entity:
+    description: Entity name
+    default: "Azul"
 runs:
   using: docker
   image: ubuntu
   args:
     - echo
-    - "ent -- $ENTITY"
+    - "ent -- $entity"
