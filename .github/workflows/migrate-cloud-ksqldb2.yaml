@@ -14,7 +14,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      contents: write
     environment: ksql
     steps:
       - run: echo "entity=${{ github.event.inputs.entity }}" >> $GITHUB_ENV
