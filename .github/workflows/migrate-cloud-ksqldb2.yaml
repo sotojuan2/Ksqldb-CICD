@@ -10,10 +10,11 @@ on:
         - cschleiden
       entity:
         required: true
-permissions: write-all
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: write-all
     environment: ksql
     steps:
       - run: echo "entity=${{ github.event.inputs.entity }}" >> $GITHUB_ENV
