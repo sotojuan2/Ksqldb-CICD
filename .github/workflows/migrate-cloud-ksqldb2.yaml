@@ -31,7 +31,7 @@ jobs:
           commit: 'false'
       - uses: ./.github/actions/ksqldb-create
         with:
-          entity: ${{ github.event.inputs.entity }}    
+          entity: ${{env.entity}}   
         
       - uses: ./.github/actions/ksqldb-ls
         with: 
