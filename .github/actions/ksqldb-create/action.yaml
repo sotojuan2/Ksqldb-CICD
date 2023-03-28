@@ -4,6 +4,9 @@ inputs:
   config:
     description: Path to config file
     default: /github/workspace/ksql-migrations.properties
+  entity:
+    description: Entity name
+    default: azul
 runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
@@ -12,4 +15,4 @@ runs:
     - create
     - -c
     - ${{ inputs.config }}
-    - ${entity}
+    - ${inputs.entity}
