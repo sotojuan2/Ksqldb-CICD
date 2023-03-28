@@ -32,10 +32,10 @@ jobs:
           from_file: 'ksql-migrations.properties'
           to_file: 'ksql-migrations.properties'
           commit: 'false'
+      - uses: ./.github/actions/ksqldb-ls
+      
       - uses: ./.github/actions/ksqldb-create
         with:
           entity: ${{env.entity}}   
         
-      - uses: ./.github/actions/ksqldb-ls
-        with: 
-            entity: ${{env.entity}}
+      
