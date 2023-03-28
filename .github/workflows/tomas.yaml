@@ -39,6 +39,6 @@ jobs:
     - name: test3
       run: ls -l
     - name: yyyy
-      uses: actions/ksqldb/action.yaml
+      uses: actions/ksql
       with:
         entity: ${{env.ENTITY}}
