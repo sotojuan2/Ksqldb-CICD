@@ -38,7 +38,3 @@ jobs:
       run: echo $ENTITU
     - name: test3
       run: ls -l
-    - name: yyyy
-      uses: actions/ksql
-      with:
-        entity: ${{env.ENTITY}}
