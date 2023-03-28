@@ -10,6 +10,7 @@ on:
         - cschleiden
       entity:
         required: true
+permissions: write-all
 jobs:
   build:
     runs-on: ubuntu-latest
