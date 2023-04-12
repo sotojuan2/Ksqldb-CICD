@@ -1,3 +1,4 @@
+name: workflow
 on:
   push:
     branches: [main]
@@ -18,5 +19,6 @@ jobs:
           to_file: 'ksql-migrations.properties'
           commit: 'false'
       - uses: ./.github/actions/ksqldb-unit-test  
+      - uses: ./.github/actions/ksqldb-unit-test2
       - uses: ./.github/actions/ksqldb-migrations-validate
       - uses: ./.github/actions/ksqldb-migrations-apply
