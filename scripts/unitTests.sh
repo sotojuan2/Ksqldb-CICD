@@ -39,6 +39,6 @@ do
 
     #echo "nombre de $archivoEntrada"
     #echo "nombre de $archivoSalida"
-    #if ksql-test-runner --input-file ${archivoEntrada} --sql-file ${archivoSQL} --output-file  ${archivoSalida} | grep -q passed; then exit 0 ; else exit 1 ; fi
+    if ksql-test-runner --input-file $archivoEntrada --sql-file $archivoSQL --output-file  $archivoSalida | grep -q passed; then exit 0 ; else exit 1 ; fi
     
 done
