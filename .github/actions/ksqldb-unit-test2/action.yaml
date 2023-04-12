@@ -1,0 +1,20 @@
+name: ksqlDB Unit Test
+description: unit test ksqlDB schema with GitHub actions
+inputs:
+  file1:
+    description: Path to input-file
+    default: /github/workspace/unit_tests/V000001__initialize_order_events_stream_input.sql
+  file2:
+    description: Path to output-file
+    default: /github/workspace/unit_tests/V000001__initialize_order_events_stream_output.sql
+  sql-file:
+    description: Path to output-file
+    default: /github/workspace/unit_tests/V000001__initialize_order_events_stream.sql
+runs:
+  using: docker
+  image: docker://jsotocf/ksql-juan:v2
+  args:
+    - sh
+    - -c
+    - if ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -q passed; then exit 0 ; else exit 1 ; fi
+    #- ksql-test-runner --input-file ${{ inputs.file1 }} --sql-file ${{ inputs.sql-file }} --output-file  ${{ inputs.file2 }} | grep -ivq failed || echo "::error::Unexpected version" && exit 1
