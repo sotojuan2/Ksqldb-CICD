@@ -37,5 +37,11 @@ jobs:
       - uses: ./.github/actions/ksqldb-create
         with:
           entity: ${{env.entity}}   
+      - uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Your Name
+          author_email: mail@example.com
+          message: 'Your commit message'
+          add: '*.sql'
         
       
