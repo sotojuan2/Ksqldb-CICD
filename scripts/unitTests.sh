@@ -40,5 +40,5 @@ do
     #echo "nombre de $archivoEntrada"
     #echo "nombre de $archivoSalida"
     ksql-test-runner --input-file $archivoEntrada --sql-file $archivoSQL --output-file  $archivoSalida | grep -q passed
-    if [ $? -eq 0 ] ; then exit 0 ; else exit 1 ; fi
+    if [ $? -eq 0 ] ; then echo "UNIT TEST DONE" ; else exit 1 ; fi
 done
