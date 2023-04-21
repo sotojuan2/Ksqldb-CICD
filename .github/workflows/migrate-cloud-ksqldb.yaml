@@ -13,7 +13,7 @@ jobs:
           CONFLUENT_KSQLDB_API_KEY: ${{ secrets.CONFLUENT_KSQLDB_API_KEY }}
           CONFLUENT_KSQLDB_API_KEY2: ${{ secrets.CONFLUENT_KSQLDB_API_KEY2 }}
           CONFLUENT_KSQLDB_API_SECRET: ${{ secrets.CONFLUENT_KSQLDB_API_SECRET }}
-          MY_REF: ${{ github.head_ref) }}
+          MY_REF: ${{ github.head_ref }}
         with:
           from_file: 'ksql-migrations.properties'
           to_file: 'ksql-migrations.properties'
