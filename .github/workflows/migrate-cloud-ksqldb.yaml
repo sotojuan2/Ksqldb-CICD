@@ -22,9 +22,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-       - name: Show default environment variables
-         run: |
-           echo "valor de my_ref $MY_REF"
+      - name: Show default environment variables
+        run: |
+          echo "valor de my_ref $MY_REF"
       - uses: actions/checkout@v3
         with:
           ref: ${{ env.MY_REF}}
