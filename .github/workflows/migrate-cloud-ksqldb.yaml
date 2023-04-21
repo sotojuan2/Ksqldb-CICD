@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: ksql
     steps:
+       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
       - uses: franzbischoff/replace_envs@v1
         env: 
           CONFLUENT_KSQLDB_ENDPOINT: ${{ secrets.CONFLUENT_KSQLDB_ENDPOINT }}
@@ -24,10 +27,8 @@ jobs:
       - name: Show default environment variables
         run: |
           echo "valor de my_ref ${{ github.head_ref }}"
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-      #- uses: ./.github/actions/ksqldb-unit-test  
+     
+      - uses: ./.github/actions/ksqldb-unit-test  
       - uses: ./.github/actions/ksqldb-unit-test2
       #- uses: ./.github/actions/ksqldb-migrations-validate
       - uses: ./.github/actions/ksqldb-migrations-apply
