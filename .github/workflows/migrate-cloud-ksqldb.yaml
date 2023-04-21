@@ -18,6 +18,10 @@ jobs:
           from_file: 'ksql-migrations.properties'
           to_file: 'ksql-migrations.properties'
           commit: 'false'
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v3
         with:
           ref: ${{ env.MY_REF}}
