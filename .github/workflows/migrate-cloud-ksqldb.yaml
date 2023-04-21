@@ -7,19 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     environment: ksql
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ env.MY_REF}}
       - uses: franzbischoff/replace_envs@v1
         env: 
           CONFLUENT_KSQLDB_ENDPOINT: ${{ secrets.CONFLUENT_KSQLDB_ENDPOINT }}
           CONFLUENT_KSQLDB_API_KEY: ${{ secrets.CONFLUENT_KSQLDB_API_KEY }}
           CONFLUENT_KSQLDB_API_KEY2: ${{ secrets.CONFLUENT_KSQLDB_API_KEY2 }}
           CONFLUENT_KSQLDB_API_SECRET: ${{ secrets.CONFLUENT_KSQLDB_API_SECRET }}
+          MY_REF: ${{ format('refs/heads/{0}', github.event.pull_request.head.ref) }}
         with:
           from_file: 'ksql-migrations.properties'
           to_file: 'ksql-migrations.properties'
           commit: 'false'
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ env.MY_REF}}
       #- uses: ./.github/actions/ksqldb-unit-test  
       - uses: ./.github/actions/ksqldb-unit-test2
       - uses: ./.github/actions/ksqldb-migrations-validate
