@@ -9,9 +9,7 @@ runs:
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
     - sh
-    - -c
-    - ksql-migrations -c ${{ inputs.config }} applay -a | grep -q Successfully
-    - if [ $? -eq 0 ] ; then echo "DONE" ; else exit 1 ; fi
+    - ./scripts/apply.sh
     #- ksql-migrations
     #- apply
     #- -a
