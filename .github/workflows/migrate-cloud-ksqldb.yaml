@@ -24,10 +24,10 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Show default environment variables
         run: |
-          echo "valor de my_ref $MY_REF"
+          echo "valor de my_ref ${{ github.head_ref }}"
       - uses: actions/checkout@v3
         with:
-          ref: ${{ env.MY_REF}}
+          ref: ${{ github.head_ref }}
       #- uses: ./.github/actions/ksqldb-unit-test  
       - uses: ./.github/actions/ksqldb-unit-test2
       - uses: ./.github/actions/ksqldb-migrations-validate
