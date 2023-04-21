@@ -10,7 +10,7 @@ runs:
   args:
     - sh
     - -c
-    - if ksql-migrations -c ${{ inputs.config }} applay -a | grep -q Successfully; then exit 0 ; else echo ERROR exit 1 ; fi
+    - if ksql-migrations -c ${{ inputs.config }} applay -a | grep -q Successfully; then exit 1 ; else echo ERROR exit 0 ; fi
     #- ksql-migrations
     #- apply
     #- -a
