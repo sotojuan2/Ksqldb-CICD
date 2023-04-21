@@ -8,8 +8,11 @@ runs:
   using: docker
   image: docker://confluentinc/ksqldb-cli:0.17.0
   args:
-    - ksql-migrations
-    - apply
-    - -a
+    - sh
     - -c
-    - ${{ inputs.config }}
+    - if ksql-migrations -c ${{ inputs.config }} applay -a | grep -q Successfully; then exit 0 ; else echo ERROR exit 1 ; fi
+    #- ksql-migrations
+    #- apply
+    #- -a
+    #- -c
+    #- ${{ inputs.config }}
