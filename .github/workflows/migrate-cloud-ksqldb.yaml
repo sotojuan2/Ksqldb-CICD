@@ -1,13 +1,16 @@
 name: workflow
 on:
   pull_request:
-    branches: ${{ github.ref_name }}
+    #branches: ${{ github.ref_name }}
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: ksql
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Request
+          uses: actions/checkout@v3
+          with:
+            ref: ${{ env.MY_REF}}
       - uses: franzbischoff/replace_envs@v1
         env: 
           CONFLUENT_KSQLDB_ENDPOINT: ${{ secrets.CONFLUENT_KSQLDB_ENDPOINT }}
