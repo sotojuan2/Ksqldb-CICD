@@ -7,10 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: ksql
     steps:
-      - name: Checkout Request
-          uses: actions/checkout@v3
-          with:
-            ref: ${{ env.MY_REF}}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ env.MY_REF}}
       - uses: franzbischoff/replace_envs@v1
         env: 
           CONFLUENT_KSQLDB_ENDPOINT: ${{ secrets.CONFLUENT_KSQLDB_ENDPOINT }}
