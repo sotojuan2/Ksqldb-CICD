@@ -43,6 +43,6 @@ jobs:
           author_email: mail@example.com
           message: 'Your commit message'
           add: '*.sql'
-          #new_branch: ${{env.entity}}
+          new_branch: ${{env.entity}}
         
       
