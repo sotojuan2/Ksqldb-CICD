@@ -2,9 +2,9 @@
 
 
 echo "Ini apply"
-DIR="$('pwd')"
+DIR=`pwd`
 echo "el directorio ${DIR}"
-#OUTPUT="$('ksql-migrations -c ksql-migrations.properties applay -a')"
+OUTPUT=`ksql-migrations -c ksql-migrations.properties applay -a`
 ksql-migrations -c ksql-migrations.properties applay -a | grep -q Successfully
 if [ $? -eq 0 ] ; then echo "UNIT TEST DONE" ; 
 else  echo "UNIT TEST fail - " ${OUTPUT} 
