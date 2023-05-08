@@ -2,7 +2,7 @@
 
 
 echo "Ini apply"
-DIR="$('ls -ltr')"
+DIR="$('pwd')"
 echo "el directorio ${DIR}"
 OUTPUT="$('ksql-migrations -c ../ksql-migrations.properties applay -a')"
 echo "${OUTPUT}" | grep -q Successfully
