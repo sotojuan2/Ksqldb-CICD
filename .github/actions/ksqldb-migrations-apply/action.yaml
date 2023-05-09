@@ -10,6 +10,7 @@ runs:
   args:
     - sh
     - ./scripts/apply.sh
+    - dry
     #- ksql-migrations
     #- apply
     #- -a
