@@ -6,10 +6,11 @@ inputs:
     default: /github/workspace/ksql-migrations.properties
 runs:
   using: docker
-  image: docker://confluentinc/ksqldb-cli:0.17.0
+  image: docker://jsotocf/ksql-juan:v2
   args:
     - sh
     - ./scripts/apply.sh
+    - dry
     #- ksql-migrations
     #- apply
     #- -a
