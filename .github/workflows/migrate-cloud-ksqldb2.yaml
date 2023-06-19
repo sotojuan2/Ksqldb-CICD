@@ -2,12 +2,6 @@ name: Create file
 on: 
   workflow_dispatch: 
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
       entity:
         required: true
 
