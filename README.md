@@ -79,7 +79,7 @@ Three workflows has created:
 
 #### Create File
 
-The name of this file is migrate-cloud-ksqldb2.yaml
+The name of this file is `migrate-cloud-ksqldb2.yaml`
 
 This workflow aims to create a blank migration file according some inputs.
 
@@ -88,7 +88,39 @@ The steps they execute are the following:
 1. Checkout repository. We reuse one of the actions that you can find in the marketplace, *actions/checkout@v2*.
    This action checks-out your repository under `$GITHUB_WORKSPACE`, so your workflow can access it.
    Further detail in the [link](https://github.com/actions/checkout).
-2. Replace Environment Variables Action. 
+2. Replace Environment Variables Action.
+   This action has the simple task of replacing the placeholders of Environment Variables with their values. Further details in the [link](https://github.com/marketplace/actions/replace_envs).
+3. Create a blank migration file, using a custom github action, `./.github/actions/ksqldb-create`.
+4. Create a new branch with the new file created in the step before. We reuse one of the actions that you can find in the marketplace, *EndBug/add-and-commit@v9*. This GitHub Action to commit changes made in your workflow run directly to your repo. Further detail in the [link](https://github.com/EndBug/add-and-commit).
+
+#### Pull Request
+
+The name of this file is `migrate-cloud-ksqldb.yaml`.
+The aim of this workflow is to execute all the unit test and apply ksql in dry-run mode before merge the PR.
+
+The steps they execute are the following:
+
+1. Checkout repository. We reuse one of the actions that you can find in the marketplace, *actions/checkout@v2*.
+   This action checks-out your repository under `$GITHUB_WORKSPACE`, so your workflow can access it.
+   Further detail in the [link](https://github.com/actions/checkout).
+2. Replace Environment Variables Action.
+   This action has the simple task of replacing the placeholders of Environment Variables with their values. Further details in the [link](https://github.com/marketplace/actions/replace_envs).
+3. Execute **ALL** unit test with a custom github action `./.github/actions/ksqldb-unit-test2`
+4. Execute ksql-migrations on dry-rune mode. The custom github action is `./.github/actions/ksqldb-migrations-apply`
+
+
+#### Merge
+
+Merge a pull request into the upstream branch when work is completed. The name of this file is `merge-cloud-ksqldb.yaml`.
+1. Checkout repository. We reuse one of the actions that you can find in the marketplace, *actions/checkout@v2*.
+   This action checks-out your repository under `$GITHUB_WORKSPACE`, so your workflow can access it.
+   Further detail in the [link](https://github.com/actions/checkout).
+2. Replace Environment Variables Action.
+   This action has the simple task of replacing the placeholders of Environment Variables with their values. Further details in the [link](https://github.com/marketplace/actions/replace_envs).
+3. Execute ksql-migrations. The custom github action is `./.github/actions/ksqldb-migrations-apply-to-cloud`
+
+
+
 
 # Reset the environment
 
