@@ -2,6 +2,11 @@
 
 This project tries to present a real example of a CI/CD flow for a ksql application.
 
+The objectives of this project are:
+
+1. Centralize iteration with ksql via a deployment tool like Github action.Developers will not have API keys to apply changes to the ksql cluster.
+2. Use the migration and testing tools provided by Confluent
+
 ## Components
 
 1. Github repository
@@ -11,7 +16,6 @@ This project tries to present a real example of a CI/CD flow for a ksql applicat
 5. Ksql tools
 6. Scripts to support Github actions
 7. Github workflow & actions
-8.
 
 ### Github repository
 
@@ -108,19 +112,16 @@ The steps they execute are the following:
 3. Execute **ALL** unit test with a custom github action `./.github/actions/ksqldb-unit-test2`
 4. Execute ksql-migrations on dry-rune mode. The custom github action is `./.github/actions/ksqldb-migrations-apply`
 
-
 #### Merge
 
 Merge a pull request into the upstream branch when work is completed. The name of this file is `merge-cloud-ksqldb.yaml`.
+
 1. Checkout repository. We reuse one of the actions that you can find in the marketplace, *actions/checkout@v2*.
    This action checks-out your repository under `$GITHUB_WORKSPACE`, so your workflow can access it.
    Further detail in the [link](https://github.com/actions/checkout).
 2. Replace Environment Variables Action.
    This action has the simple task of replacing the placeholders of Environment Variables with their values. Further details in the [link](https://github.com/marketplace/actions/replace_envs).
 3. Execute ksql-migrations. The custom github action is `./.github/actions/ksqldb-migrations-apply-to-cloud`
-
-
-
 
 # Reset the environment
 
