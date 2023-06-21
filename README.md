@@ -7,6 +7,11 @@ The objectives of this project are:
 1. Centralize iteration with ksql via a deployment tool like Github action.Developers will not have API keys to apply changes to the ksql cluster.
 2. Use the migration and testing tools provided by Confluent
 
+
+A high level flow of how it works is the following:
+
+![](assets/20230621_125502_flow.png)
+
 ## Components
 
 1. Github repository
