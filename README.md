@@ -130,4 +130,6 @@ Merge a pull request into the upstream branch when work is completed. The name o
 
 # Reset the environment
 
+```
 docker run --rm -it -v ${PWD}:/tmp/juan jsotocf/ksql-juan:v1 bash
+```
